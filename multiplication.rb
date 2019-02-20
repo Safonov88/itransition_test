@@ -6,14 +6,27 @@ module Multiplication
     combinations = combinations(string)
     return nil if combinations.empty?
 
+    multiplication(combinations).max
+  end
+
+  def multiplication(combinations)
     mulitiplication_array = []
     combinations.map do |combination|
       sub_combination = []
       combination.each_char { |s| sub_combination << s.to_i }
-      mulitiplication_array << (sub_combination[0] * sub_combination[1] * sub_combination[2] * sub_combination[3])
+
+      array = 0
+      3.times do |i|
+        if i.zero?
+          array = sub_combination[0] * sub_combination[1]
+        else
+          array *= sub_combination[i.next]
+        end
+      end
+      mulitiplication_array << array
     end
 
-    mulitiplication_array.sort.last
+    mulitiplication_array
   end
 
   def string?(string)
