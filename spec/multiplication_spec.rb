@@ -15,4 +15,18 @@ describe 'module Multiplication' do
       end
     end
   end
+
+  describe '#correct_combination?' do
+    context 'when the value include only numbers' do
+      it 'returns true' do
+        expect(Multiplication::correct_combination?('2548')).to be_truthy
+      end
+    end
+
+    context 'when the value includes letters' do
+      it 'returns false' do
+        expect(Multiplication::correct_combination?('2a48')).to be_falsey
+      end
+    end
+  end
 end
