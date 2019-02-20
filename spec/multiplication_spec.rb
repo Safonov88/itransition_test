@@ -29,4 +29,18 @@ describe 'module Multiplication' do
       end
     end
   end
+
+  describe '#combinations' do
+    context 'when string include valid combinations' do
+      it 'returns an array with values containing only digits' do
+        expect(Multiplication::combinations('abc12345def')).to eq(['1234', '2345'])
+      end
+    end
+
+    context 'when string include invalid combinations' do
+      it 'returns empty array' do
+        expect(Multiplication::combinations('abcd12ef345')).to eq([])
+      end
+    end
+  end
 end
