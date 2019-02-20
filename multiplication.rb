@@ -13,7 +13,11 @@ module Multiplication
 
     count_sub_strings.times do |first|
       last = first + 3
-      array << string[first..last]
+      array << string[first..last] if correct_combination?(string[first..last])
     end
+  end
+
+  def correct_combination?(string)
+    string.scan(/\D/).empty?
   end
 end
