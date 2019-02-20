@@ -1,13 +1,15 @@
 module Multiplication
   extend self
 
-  def max_multiplication(string)
-    return nil unless string?(string)
-    combinations = combinations(string)
+  def max_multiplication(str)
+    return nil unless str.is_a?(String)
+    combinations = combinations(str)
     return nil if combinations.empty?
 
     multiplication(combinations).max
   end
+
+  private
 
   def multiplication(combinations)
     mulitiplication_array = []
@@ -15,22 +17,11 @@ module Multiplication
       sub_combination = []
       combination.each_char { |s| sub_combination << s.to_i }
 
-      array = 0
-      3.times do |i|
-        if i.zero?
-          array = sub_combination[0] * sub_combination[1]
-        else
-          array *= sub_combination[i.next]
-        end
-      end
-      mulitiplication_array << array
+      m = 1
+      mulitiplication_array << sub_combination.map{ |i| m *= i }.last
     end
 
     mulitiplication_array
-  end
-
-  def string?(string)
-    string.class == String
   end
 
   def combinations(string)
