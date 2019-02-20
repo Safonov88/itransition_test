@@ -49,4 +49,10 @@ describe 'module Multiplication' do
       expect(Multiplication::multiplication(['1234', '5678'])).to eq([24, 1680])
     end
   end
+
+  describe '#max_multiplication' do
+    it 'returns max multiplication value' do
+      expect(Multiplication::max_multiplication('abc12345def')).to eq(120)
+    end
+  end
 end
