@@ -15,9 +15,15 @@ module Multiplication
       last = first + 3
       array << string[first..last] if correct_combination?(string[first..last])
     end
+
+    array
   end
 
   def correct_combination?(string)
     string.scan(/\D/).empty?
+  end
+
+  def combinations?(string)
+    !combinations(string).empty?
   end
 end
