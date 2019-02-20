@@ -43,4 +43,10 @@ describe 'module Multiplication' do
       end
     end
   end
+
+  describe '#multiplication' do
+    it 'checks correct multiplication' do
+      expect(Multiplication::multiplication(['1234', '5678'])).to eq([24, 1680])
+    end
+  end
 end
